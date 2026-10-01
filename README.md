@@ -53,17 +53,8 @@ autodl-gpu-helper/
 ```text
 https://raw.githubusercontent.com/你的用户名/autodl-gpu-helper/main/autodl-gpu-helper.user.js
 ```
-
 Tampermonkey 通常会识别 `.user.js` 文件并进入安装流程。
 
-如果准备长期公开发布，建议后续在脚本头部补充：
-
-```javascript
-// @homepageURL  https://github.com/你的用户名/autodl-gpu-helper
-// @supportURL   https://github.com/你的用户名/autodl-gpu-helper/issues
-// @downloadURL  https://raw.githubusercontent.com/你的用户名/autodl-gpu-helper/main/autodl-gpu-helper.user.js
-// @updateURL    https://raw.githubusercontent.com/你的用户名/autodl-gpu-helper/main/autodl-gpu-helper.user.js
-```
 
 ## 使用
 
@@ -93,8 +84,6 @@ Tampermonkey 通常会识别 `.user.js` 文件并进入安装流程。
 
 ## 桌面通知
 
-脚本不会播放提示音。
-
 成功后使用浏览器原生 Notification API 发送系统通知。如果没有弹出通知，请检查：
 
 - AutoDL 网站通知权限是否为“允许”
@@ -102,79 +91,6 @@ Tampermonkey 通常会识别 `.user.js` 文件并进入安装流程。
 - Windows / macOS 是否允许浏览器发送通知
 - 勿扰模式 / 专注模式是否阻止通知
 
-## 当前页面依赖
-
-脚本目前依赖 AutoDL 页面中的部分 DOM 结构和文字，包括：
-
-```text
-tr.el-table__row
-button.refresh-btn
-开机
-GPU充足
-.el-message-box__btns button
-确定
-```
-
-如果 AutoDL 修改页面结构或文案，脚本可能需要同步更新。
-
-## 版本管理
-
-建议采用语义化版本：
-
-```text
-1.0.0  首次公开版本
-1.0.1  Bug 修复
-1.1.0  新增兼容功能
-2.0.0  存在不兼容变更
-```
-
-每次发布新版本时，同时修改用户脚本头部：
-
-```javascript
-// @version      1.0.1
-```
-
-## 发布到 GitHub
-
-创建一个公开仓库，例如：
-
-```text
-autodl-gpu-helper
-```
-
-然后上传本目录中的所有文件。
-
-推荐仓库简介：
-
-> AutoDL GPU 抢卡助手：Tampermonkey 自动监控 GPU 资源、刷新实例列表、自动开机确认，并提供桌面通知。
-
-建议添加 Topics：
-
-```text
-autodl
-tampermonkey
-userscript
-gpu
-javascript
-automation
-```
-
-## Greasy Fork
-
-如果希望普通用户更容易安装，可以同时发布到 Greasy Fork。
-
-GitHub 负责：
-
-- 源码
-- Issues
-- PR
-- 版本管理
-
-Greasy Fork 负责：
-
-- 用户发现
-- 一键安装
-- 自动更新
 
 ## 安全与隐私
 
